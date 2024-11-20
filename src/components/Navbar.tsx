@@ -65,7 +65,6 @@ function Navbar() {
           "backdrop-blur-sm text-white": !isScrolled,
         }
       )}
-      onClick={() => setSelectedNav(null)}
     >
       <div className="container mx-auto flex justify-between items-center gap-6">
         {/* Logo Section */}

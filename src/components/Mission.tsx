@@ -31,7 +31,7 @@ const Mission = () => {
         </div>
 
         {/* Supporting Text */}
-        <div className="text-white flex justify-center mt-4 px-4 text-sm md:text-base lg:text-lg">
+        <div className="text-white flex justify-center mt-4 px-2 text-sm md:text-sm lg:text-lg">
           {data.subtitle}
         </div>
       </div>
