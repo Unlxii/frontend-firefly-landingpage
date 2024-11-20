@@ -1,0 +1,104 @@
+{
+  "title": "ABOUT US",
+  "header": "ABOUT PROJECT FIREFLY",
+  "details": [
+    {
+      "text": "Project FireFly is a partnership between ",
+      "style": "normal"
+    },
+    {
+      "text": "RMIT Vietnam, Chiang Mai University",
+      "style": "highlight"
+    },
+    {
+      "text": " and the ",
+      "style": "normal"
+    },
+    {
+      "text": "University of Glasgow Singapore",
+      "style": "highlight"
+    },
+    {
+      "text": " funded by the ",
+      "style": "normal"
+    },
+    {
+      "text": "APNIC Foundation ",
+      "style": "highlight"
+    },
+    {
+      "text": "as part of the Ian Peter Grants for Internet and the Environment.",
+      "style": "normal"
+    }
+  ],
+  "details2": [
+    {
+      "text": "Project FireFly is dedicated to combating the increasing threats of wildfires worldwide.",
+      "style": "normal"
+    },
+    {
+      "text": " By integrating ",
+      "style": "normal"
+    },
+    {
+      "text": "advanced UAV technology with IoT sensors",
+      "style": "highlight"
+    },
+    {
+      "text": ", we aim to create a ",
+      "style": "normal"
+    },
+    {
+      "text": "real-time warning system for early fire detection",
+      "style": "highlight"
+    },
+    {
+      "text": " in remote forest areas in ",
+      "style": "normal"
+    },
+    {
+      "text": "Northern Thailand region.",
+      "style": "highlight"
+    }
+  ],
+
+  "details3": [
+    {
+      "text": "Our efforts focus on supporting communities that depend on forests for their livelihoods, providing a technological solution to",
+      "style": "normal"
+    },
+    {
+      "text": "enhance safety and environmental conservation.",
+      "style": "highlight"
+    }
+  ],
+  "details4": [
+    {
+      "text": "Our innovative hybrid approach integrating UAV with IoT technologies aims to overcome communication challenges in remote regions. By leveraging UAVs as communication hubs, the project",
+      "style": "normal"
+    },
+    {
+      "text": " enhances internet access for IoT sensors ",
+      "style": "highlight"
+    },
+    {
+      "text": " in isolated areas",
+      "style": "normal"
+    }
+  ],
+
+  "title2": [
+    {
+      "text": "KEY ",
+      "style": "normal"
+    },
+    {
+      "text": " ACTIVITIES",
+      "style": "underline"
+    },
+    {
+      "text": " INCLUDE ",
+      "style": "normal"
+    }
+  ]
+}

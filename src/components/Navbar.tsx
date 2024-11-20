@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 
 const NAV_ITEMS = [
@@ -13,6 +13,20 @@ const NAV_ITEMS = [
 
 function Navbar() {
   const [selectedNav, setSelectedNav] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const renderNavItems = (isMobile: boolean) => (
     <ul
@@ -26,11 +40,12 @@ function Navbar() {
           <a
             href={`#${item.toLowerCase()}`}
             className={classNames({
-              "text-navtext bg-opacity-10 bg-black rounded-md":
+              "text-navtext bg-opacity-20 bg-black rounded-md":
                 selectedNav === item && !isMobile,
-              "block text-navtext bg-opacity-10 bg-black bg-clip-border ":
+              "block text-navtext bg-opacity-20 bg-black bg-clip-border ":
                 selectedNav === item && isMobile,
               "p-2": true,
+              " text-color10 ": isScrolled,
             })}
             onClick={() => setSelectedNav(item)}
           >
@@ -42,29 +57,46 @@ function Navbar() {
   );
 
   return (
-    <nav className="backdrop-blur-sm w-screen text-white font-medium p-3 md:p-6 shadow-xl absolute rounded-b-3xl md:backdrop-blur-lg z-50">
+    <nav
+      className={classNames(
+        "w-screen text-white font-medium p-3 md:p-6 shadow-xl fixed rounded-b-3xl z-50 transition-all duration-300",
+        {
+          "bg-white text-black": isScrolled,
+          "backdrop-blur-sm text-white": !isScrolled,
+        }
+      )}
+      onClick={() => setSelectedNav(null)}
+    >
       <div className="container mx-auto flex justify-between items-center gap-6">
         {/* Logo Section */}
-        <div className="flex items-center">
-          <img
-            src="/firefly-logo.png"
-            alt="Firefly Logo"
-            className="h-4 w-4 mr-2 md:h-8 md:w-8 md:mr-3"
-          />
-          <h1 className="text-2xl font-bold tracking-wide">Firefly</h1>
+        <div className="flex items-center gap-2">
+          {isScrolled ? (
+            <img src="/Subtract.svg" alt="Scrolled Logo" className="h-8" />
+          ) : (
+            <img src="/firefly-logo.svg" alt="Original Logo" className="h-8" />
+          )}
+          <h1
+            className={classNames("text-2xl font-bold tracking-wide", {
+              "gradient-text3": isScrolled,
+              "text-white": !isScrolled,
+            })}
+          >
+            Firefly
+          </h1>
         </div>
 
-        {/* Navigation Menu */}
-        <div className="hidden md:flex">{renderNavItems(false)}</div>
+        {/* Desktop Navigation */}
+        {renderNavItems(false)}
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center">
           <button
             className="text-white focus:outline-none"
             aria-label="Toggle menu"
-            onClick={() =>
-              setSelectedNav(selectedNav === "MENU" ? null : "MENU")
-            }
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedNav(selectedNav === "MENU" ? null : "MENU");
+            }}
           >
             <svg
               className="w-6 h-6"
@@ -86,7 +118,9 @@ function Navbar() {
 
       {/* Mobile Navigation Menu */}
       {selectedNav === "MENU" && (
-        <div className="md:hidden mt-4">{renderNavItems(true)}</div>
+        <div className="md:hidden mt-4" onClick={(e) => e.stopPropagation()}>
+          {renderNavItems(true)}
+        </div>
       )}
     </nav>
   );
